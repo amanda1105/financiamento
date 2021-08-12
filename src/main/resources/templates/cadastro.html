@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title></title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+<style>
+a {
+	background-color: red;
+	color: white;
+	padding: 1em 1.5em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:hover {
+	background-color: blue;
+}
+
+a:active {
+	background-color: darkblue;
+}
+
+a:visited {
+	background-color: blue;
+}
+</style>
+</head>
+<body>
+<form action="/salvar" method="post" th:object="${cliente}">
+	<input type="hidden"  th:field="*{id}" >
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Intenções de Financiamento</h1>
+			</div>
+			<div class="panel-body">
+				<div class="form-row">
+					<div class="form-group">
+						<label for="nome">Nome:</label> <input type="text"
+							th:field="*{nome}" class="form-control"  placeholder="Nome">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="endereco">Endereço:</label> <input type="text"
+							th:field="*{endereco}" class="form-control"  placeholder="Endereço">
+					</div>
+					<div class="form-group">
+						<label for="numeroe">Nº</label> <input type="number"
+							th:field="*{numeroe}" class="form-control">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="cidade">Cidade</label> <input type="text"
+							th:field="*{cidade}" class="form-control" >
+					</div>
+					<div class="form-group col-md-6">
+						<label for="estado">Estado</label> <input type="text"
+							th:field="*{estado}" class="form-control" >
+					</div>
+					<div class="form-group col-md-2">
+						<label for="cep">CEP</label> <input type="number"
+							th:field="*{cep}" class="form-control" >
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="cpf">CPF:</label> <input type="number"
+							th:field="*{cpf}" class="form-control" placeholder="CPF">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="rg">RG:</label> <input type="number"
+							th:field="*{rg}" class="form-control"  placeholder="RG">
+					</div>
+					<div class="form-group">
+						<label for="datanasc">Data de Nascimento:</label> <input
+							th:field="*{datanasc}" type="date"  class="form-control">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="email">E-mail:</label> <input type="email"
+							th:field="*{email}" class="form-control" placeholder="example@example">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="telred">Telefone Residencial:</label> <input
+							type="number" class="form-control" 
+							th:field="*{telred}" placeholder="1129177162">
+					</div>
+					<div class="form-group">
+						<label for="celular">Celular:</label> <input type="number"
+							th:field="*{celular}"  class="form-control">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="tipofinanciamento">Tipo de Financiamento:</label> <select
+							th:field="*{tipofinanciamento}"  class="form-control">
+							<option selected>Escolher...</option>
+							<option value="Auto">Auto</option>
+							<option value="Imobiliario">Imobiliario</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="qtdparce">Quantidade do Parcelamento:</label> <input
+							type="number" class="form-control" 
+							th:field="*{qtdparce}" placeholder="Quantidade">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="valorint">Valor Intenção:</label> <input type="number"
+							th:field="*{valorint}" class="form-control"  placeholder="Valor">
+					</div>
+					<div class="form-group">
+						<label for="salario">Salario:</label> <input type="number"
+							th:field="*{salario}" class="form-control">
+					</div>
+				</div>
+			</div>
+			 <button type="submit" class="btn btn-default">Submit</button>
+		</div>
+		<p>
+	</form>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

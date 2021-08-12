@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="widthdevice-width" />
+<title></title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+	<style>
+a {
+  background-color: red;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  background-color: blue;
+}
+
+a:active {
+  background-color: darkblue;
+}
+
+a:visited {
+  background-color: blue;
+}</style>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Intenções de Financiamento</h1>
+		</div>
+		<a class="btn" href="/cadastro">Nova Intenção</a> <p>
+		<div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Cliente</th>
+							<th>Tipo Financiamento</th>
+							<th>Valor Intenção</th>
+							<th>Quantidade Parcelamento</th>
+						</tr>
+					</thead>
+					<tr th:each="cliente : ${clientes}">
+						<td th:text="${cliente.nome}"></td>
+						<td th:text="${cliente.tipofinanciamento}"></td>
+						<td th:text="${cliente.qtdparce}"></td>
+						<td><a
+							th:href="@{/detalhar/{id}(id = ${cliente.id})}"
+							class="btn btn-warning">Detalhar</a></td>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
